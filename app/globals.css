@@ -7,6 +7,15 @@ body,
 :root {
   height: 100%;
 }
+body {
+  background: linear-gradient(113deg, #1d0e29 0%, #251134 0.01%, #000 100%);
+}
+
+.text-gradient {
+  background-image: linear-gradient(to right, #b176eb, #5515eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 @layer base {
   :root {

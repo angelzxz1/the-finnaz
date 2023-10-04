@@ -1,17 +1,20 @@
 "use client";
 import { useUser } from "@clerk/nextjs";
 import { LogIn } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "./mode-toggle";
 
 const PublicNavBar = () => {
   const router = useRouter();
+  const path = usePathname();
   const user = useUser();
-  if (!user?.isSignedIn) {
-    return (
-      <nav className="bg-purple-500 p-2 flex justify-end items-center">
-        <ModeToggle />
+  if (path === "/sign-in") return null;
+  if (path === "/sign-up") return null;
+  return (
+    <nav className="flex justify-end items-center w-full border-b border-b-[#656565]/60 bg-[#42339C]/10 backdrop-blur-[10px] fixed ">
+      <ModeToggle />
+      {!user?.isSignedIn ? (
         <button
           className="flex cursor-pointer"
           onClick={(e) => {
@@ -22,22 +25,20 @@ const PublicNavBar = () => {
           <LogIn className="h-6 w-6" />
           <p className="mx-2">Log in</p>
         </button>
-      </nav>
-    );
-  }
-  return (
-    <nav className="bg-purple-500 p-2 flex justify-end items-center">
-      <ModeToggle />
-      <button
-        className="flex cursor-pointer"
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/dashboard");
-        }}
-      >
-        <p className="mx-2">Dashboard</p>
-      </button>
-      <UserButton afterSignOutUrl="/" />
+      ) : (
+        <>
+          <button
+            className="flex cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              router.push("/dashboard");
+            }}
+          >
+            <p className="mx-2">Dashboard</p>
+          </button>
+          <UserButton afterSignOutUrl="/" />
+        </>
+      )}
     </nav>
   );
 };

@@ -17,6 +17,8 @@ model Profile {
   name         String
   imageUrl     String        @db.Text
   email        String        @db.Text
+  phone        String        @db.Text
+  password     String        @db.Text
   transactions Transaction[]
 
   createdAt DateTime @default(now())
@@ -24,14 +26,19 @@ model Profile {
 }
 
 model Transaction {
-  id        Int      @id @default(autoincrement())
-  name      String
+  id        Int             @id @default(autoincrement())
   amount    Float
-  type      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  type      TransactionType @default(PURCHASE)
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
   profileId String
-  profile   Profile  @relation(fields: [profileId], references: [id])
+  profile   Profile         @relation(fields: [profileId], references: [id])
 
   @@index([profileId], name: "profileId")
+}
+
+enum TransactionType {
+  PURCHASE
+  SUBSCRIPTION
+  WITHDRAWAL
 }
