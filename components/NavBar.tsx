@@ -22,10 +22,6 @@ const PublicLinks = [
 ];
 const PrivateLinks = [
   {
-    name: "Home",
-    href: "/",
-  },
-  {
     name: "Dashboard",
     href: "/dashboard",
   },
