@@ -26,7 +26,7 @@ model Profile {
 }
 
 model Transaction {
-  id        Int             @id @default(autoincrement())
+  id        String          @id @default(uuid())
   amount    Float
   type      TransactionType @default(PURCHASE)
   createdAt DateTime        @default(now())
