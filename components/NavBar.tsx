@@ -58,12 +58,24 @@ const NavBar = () => {
         <div className=" flex h-full w-5/6 gap-2 items-center">
           {!user?.isSignedIn
             ? PublicLinks.map((link) => (
-                <Link href={link.href} key={link.name}>
+                <Link
+                  href={link.href}
+                  key={link.name}
+                  className={
+                    path === link.href
+                      ? "border border-b-white border-transparent"
+                      : "text-[#b176eb] border hover:border-b-[#b176eb] border-transparent"
+                  }
+                >
                   {link.name}
                 </Link>
               ))
             : PrivateLinks.map((link) => (
-                <Link href={link.href} key={link.name}>
+                <Link
+                  href={link.href}
+                  key={link.name}
+                  className={path === link.href ? "" : "bg-red-500"}
+                >
                   {link.name}
                 </Link>
               ))}
