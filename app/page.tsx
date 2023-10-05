@@ -6,6 +6,7 @@ import Image from "next/image";
 export default function Home() {
   const user = useUser();
   const router = useRouter();
+  if (!user) return null;
   if (user?.isSignedIn) {
     return router.push("/dashboard");
   }
