@@ -74,7 +74,11 @@ const NavBar = () => {
                 <Link
                   href={link.href}
                   key={link.name}
-                  className={path === link.href ? "" : "bg-red-500"}
+                  className={
+                    path === link.href
+                      ? "border border-b-white border-transparent"
+                      : "text-[#b176eb] border hover:border-b-[#b176eb] border-transparent"
+                  }
                 >
                   {link.name}
                 </Link>

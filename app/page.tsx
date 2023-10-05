@@ -7,7 +7,7 @@ export default function Home() {
   const user = useUser();
   const router = useRouter();
   if (user?.isSignedIn) {
-    return router.push("/userTemp");
+    return router.push("/dashboard");
   }
   return (
     <div className="h-full w-full flex justify-center items-center">
