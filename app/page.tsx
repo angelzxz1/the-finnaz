@@ -32,12 +32,13 @@ export default function Home() {
         <Image
           src={Landing}
           alt="landing"
-          className="absolute h-[34.6]"
+          className="absolute h-[34.6%]"
         />
         <Image
           src={Iphone}
           alt="iphone-cover"
-          className="absolute h-4/5"
+          className="absolute h-4/5 w-auto"
+          
         />
       </div>
     </div>
