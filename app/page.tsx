@@ -2,6 +2,8 @@
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Iphone from "@/public/iphone-no-bg.png"
+import Landing from "@/public/landing.png"
 
 export default function Home() {
   const user = useUser();
@@ -28,18 +30,14 @@ export default function Home() {
 
       <div className="h-full w-1/2 flex justify-center items-center relative">
         <Image
-          src="/landing.png"
+          src={Landing}
           alt="landing"
-          width={330}
-          height={500}
-          className="absolute"
+          className="absolute h-[34.6]"
         />
         <Image
-          src="/iphone-no-bg.png"
+          src={Iphone}
           alt="iphone-cover"
-          width={500}
-          height={500}
-          className="absolute"
+          className="absolute h-4/5"
         />
       </div>
     </div>
