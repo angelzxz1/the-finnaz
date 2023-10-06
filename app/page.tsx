@@ -32,7 +32,7 @@ export default function Home() {
         <Image
           src={Landing}
           alt="landing"
-          className="absolute h-[34.6%]"
+          className="absolute w-[34.6%] h-auto"
         />
         <Image
           src={Iphone}
