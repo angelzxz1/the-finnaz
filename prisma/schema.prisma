@@ -21,8 +21,9 @@ model Profile {
   password     String        @db.Text
   transactions Transaction[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  UserContactMessage UserContactMessage[]
 }
 
 model Transaction {
@@ -41,4 +42,24 @@ enum TransactionType {
   PURCHASE
   SUBSCRIPTION
   WITHDRAWAL
+}
+
+model ContactMessage {
+  id          String   @id @default(uuid())
+  firstName   String
+  lastName    String
+  email       String
+  phoneNumber String
+  message     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model UserContactMessage {
+  id               String  @id @default(uuid())
+  contactMessageId String
+  profileId        String
+  profile          Profile @relation(fields: [profileId], references: [id])
+
+  @@index([profileId])
 }
