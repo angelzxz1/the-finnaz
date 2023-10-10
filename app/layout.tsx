@@ -7,30 +7,32 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Magenz",
-  description: "Your financial companion",
+    title: "Magenz",
+    description: "Your financial companion",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return (
-    <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem={false}
-            storageKey="magenz-themme"
-          >
-            <NavBar />
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
-  );
+    return (
+        <ClerkProvider>
+            <html lang="en" suppressHydrationWarning>
+                <body className={inter.className}>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="dark"
+                        enableSystem={false}
+                        storageKey="magenz-themme"
+                    >
+                        <NavBar />
+                        <main className="flex w-full h-full flex-col pt-12">
+                            {children}
+                        </main>
+                    </ThemeProvider>
+                </body>
+            </html>
+        </ClerkProvider>
+    );
 }

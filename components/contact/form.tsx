@@ -51,6 +51,7 @@ export const Contactform = () => {
         try {
             await axios.post("/api/contact", values);
             form.reset();
+            router.prefetch("/contact");
             router.refresh();
         } catch (error) {
             console.log(error);
@@ -60,7 +61,7 @@ export const Contactform = () => {
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="bg-[#D9D9D9] px-[4rem] py-[2.25rem] rounded-[10px] text-black h-3/4 w-full sm:w-4/5 md:w-3/5 lg:w-1/2 flex flex-col gap-4"
+                className="bg-[#D9D9D9] px-[4rem] py-[2.25rem] rounded-[10px] text-black h-3/4 w-full sm:w-4/5 md:w-3/5 lg:w-1/2 flex flex-col gap-4 max-w-3xl"
             >
                 <h1 className="text-[36px] font-bold">Contact us</h1>
                 <div className="flex w-full items-center justify-between gap-4 ">
