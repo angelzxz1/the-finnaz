@@ -4,6 +4,7 @@ import { UserButton } from "@clerk/nextjs";
 import { Button } from "./ui/button";
 import { NavLink } from "./NavLink";
 import { SignInButton, SignUpButton } from "./SignButtons";
+import { ResNavButtons } from "./ResponsiveNavButtons";
 
 const PublicLinks = [
     {
@@ -44,10 +45,11 @@ const PrivateLinks = [
 
 const NavBar = async () => {
     const user = await currentProfile();
+
     return (
         <nav className="flex justify-center items-center w-full border-b border-b-[#656565]/60 bg-[#42339C]/10 backdrop-blur-[10px] fixed z-50 h-12">
-            <div className=" flex h-full w-3/4">
-                <div className=" flex h-full w-5/6 gap-2 items-center">
+            <div className="h-full w-3/4 hidden md:flex">
+                <div className="flex h-full w-5/6 gap-2 items-center">
                     {!user
                         ? PublicLinks.map((link) => (
                               <NavLink
@@ -78,6 +80,11 @@ const NavBar = async () => {
                     )}
                 </div>
             </div>
+            {!user ? (
+                <ResNavButtons Links={PublicLinks} />
+            ) : (
+                <ResNavButtons Links={PrivateLinks} isLogged />
+            )}
         </nav>
     );
 };

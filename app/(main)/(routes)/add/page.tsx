@@ -1,3 +1,4 @@
+import { AddForm } from "@/components/Add/Add-form";
 import { Summary } from "@/components/Summary";
 import { Edit, Edit2, Edit3 } from "lucide-react";
 
@@ -8,8 +9,10 @@ const AddPage = () => {
                 <Summary />
             </section>
             <section className="w-full h-4/5 flex ">
-                <div className="flex w-2/3 bg-emerald-600"></div>
-                <div className="flex w-1/3 bg-indigo-600"></div>
+                <div className="flex w-2/3"></div>
+                <div className="flex w-1/3 items-center">
+                    <AddForm />
+                </div>
             </section>
         </div>
     );

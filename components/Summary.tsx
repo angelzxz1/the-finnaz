@@ -44,16 +44,16 @@ export const Summary = async () => {
     console.log(balance);
     const { dayName, dateNumber, monthName, year } = GetDate();
     return (
-        <div className="h-full w-3/4 flex">
-            <div className="w-1/2 flex flex-col">
-                <h1 className="text-4xl h-1/2 flex items-center">{name}</h1>
-                <div className="h-1/2 flex  flex-col justify-center">
+        <div className="h-full w-11/12 md:w-3/4 flex flex-col md:flex-row ">
+            <div className="md:w-1/2 w-full flex md:flex-col justify-end md:justify-start">
+                <h1 className="text-4xl md:h-1/2 flex items-center ">{name}</h1>
+                <div className="h-1/2 md:flex  flex-col justify-center hidden">
                     <h2 className="text-3xl">{dayName}</h2>
                     <h3 className="text-2xl">{`${monthName} ${dateNumber}, ${year}`}</h3>
                 </div>
             </div>
-            <div className="w-1/2 h-full flex items-end">
-                <div className="h-2/3 w-full flex flex-col justify-center items-end">
+            <div className="md:w-1/2 w-full flex items-end flex-1">
+                <div className="md:h-2/3 w-full flex flex-col justify-center items-end h-full">
                     <span className="h-1/2 flex items-center pr-4 text-sm text-zinc-600">
                         Spent / Total
                     </span>
